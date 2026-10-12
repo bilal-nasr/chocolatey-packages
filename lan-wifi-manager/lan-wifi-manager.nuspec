@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>lan-wifi-manager</id>
+    <version>2.3.0</version>
+    <packageSourceUrl>https://github.com/bilal-nasr/chocolatey-packages/tree/main/lan-wifi-manager</packageSourceUrl>
+    <owners>bilal-nasr</owners>
+    <title>LAN Wi-Fi Manager</title>
+    <authors>bilal-nasr</authors>
+    <projectUrl>https://github.com/bilal-nasr/lan-wifi-manager</projectUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/bilal-nasr/lan-wifi-manager@main/docs/icon.png</iconUrl>
+    <copyright>2026 bilal-nasr</copyright>
+    <licenseUrl>https://github.com/bilal-nasr/lan-wifi-manager#license</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <docsUrl>https://github.com/bilal-nasr/lan-wifi-manager#readme</docsUrl>
+    <bugTrackerUrl>https://github.com/bilal-nasr/lan-wifi-manager/issues</bugTrackerUrl>
+    <tags>lan-wifi-manager ethernet wifi wi-fi lan failover network-failover internet-failover network-priority interface-metric route-metric network-monitor bandwidth-monitor tray freeware admin</tags>
+    <summary>Switches your traffic from LAN to Wi-Fi when the wired connection stops working or gets poor, and back when it recovers.</summary>
+    <description><![CDATA[LAN Wi-Fi Manager is for Windows computers connected by both a LAN cable and Wi-Fi.
+
+## What it does
+
+- Every 30 seconds by default it tests the internet through each adapter, with several pings and a DNS test, and rates each link **Good**, **Degraded** (packet loss, high latency, jitter or DNS not answering) or **Down**.
+- A dead LAN switches traffic to Wi-Fi. A poor LAN switches only if the Wi-Fi is actually better. Traffic goes back to the LAN once it is healthy again.
+- Both adapters stay connected. The app only changes the interface metric (which connection Windows prefers), so switching is instant. When you quit, it turns Windows' automatic metrics back on (so a metric you set by hand is not kept); this is a setting, on by default.
+- Manual modes: Use LAN, Use Wi-Fi and Toggle, from the window or the tray icon.
+- Status tab with a route map and latency, packet loss, jitter and DNS for both links.
+- Resources tab: CPU, memory, GPU, network and disk, with a process list and End task.
+- Startup apps and Services: see what starts when you sign in and turn it on or off, and start, stop or restart background services. Protected system services stay locked; Store apps are managed by Windows.
+- Live download/upload speed next to the tray icons, start at login, notifications and a daily log.
+
+## Package notes
+
+- The app is a single portable exe. This package downloads it from the GitHub release and checks its SHA256 checksum. It is 64-bit only.
+- Start it once with the `LanWifiManager` command. The app then adds its own Start menu shortcut (you can turn that off in its settings).
+- It needs administrator rights to change the network priority. It starts without them and asks for elevation (UAC) when you open it.
+- The exe is not code-signed.
+- Settings and logs are kept in `%AppData%\LanWifiManager` and are not removed on uninstall.
+- Update with `choco upgrade lan-wifi-manager`. Installed through Chocolatey, the app does not replace its own exe: Settings > Updates & about tells you a new version is out and offers **Copy update command**, so Chocolatey's version and files stay correct.
+- Quit the app from the tray before upgrading or uninstalling; the package refuses to continue while it runs.
+- Before uninstalling, turn off **Start with Windows** in its settings. The uninstaller removes the app's Start menu shortcut for the current user.
+
+## Privacy
+
+No telemetry and no account. It only contacts your ping targets (8.8.8.8 and 1.1.1.1 by default), your adapters' DNS servers, and the GitHub API for update checks, which you can turn off in Settings.
+
+Ubuntu and macOS builds are available from the project page; this package is for Windows 10 and 11 only.
+]]></description>
+    <releaseNotes>https://github.com/bilal-nasr/lan-wifi-manager/releases/tag/v2.3.0</releaseNotes>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+  </files>
+</package>
