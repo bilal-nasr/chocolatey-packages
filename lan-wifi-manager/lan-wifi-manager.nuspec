@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>lan-wifi-manager</id>
-    <version>2.3.0</version>
+    <version>2.5.0</version>
     <packageSourceUrl>https://github.com/bilal-nasr/chocolatey-packages/tree/main/lan-wifi-manager</packageSourceUrl>
     <owners>bilal-nasr</owners>
     <title>LAN Wi-Fi Manager</title>
@@ -23,9 +23,11 @@
 - Every 30 seconds by default it tests the internet through each adapter, with several pings and a DNS test, and rates each link **Good**, **Degraded** (packet loss, high latency, jitter or DNS not answering) or **Down**.
 - A dead LAN switches traffic to Wi-Fi. A poor LAN switches only if the Wi-Fi is actually better. Traffic goes back to the LAN once it is healthy again.
 - Both adapters stay connected. The app only changes the interface metric (which connection Windows prefers), so switching is instant. When you quit, it turns Windows' automatic metrics back on (so a metric you set by hand is not kept); this is a setting, on by default.
-- Manual modes: Use LAN, Use Wi-Fi and Toggle, from the window or the tray icon.
+- Split mode: browsers and other apps that follow the Windows proxy setting send each new connection over the LAN or the Wi-Fi, so several downloads together can use both lines. One download, a call or a game still uses one line, and Split is not bonding. A speed test measures each line alone and both together. It only helps when the LAN and the Wi-Fi are separate internet connections.
+- Hotspot tab: share the computer's internet over Wi-Fi, with network name, password, band, connected devices, live speed and an optional data limit.
+- Manual modes: Use LAN, Use Wi-Fi, Toggle and Split, from the window or the tray icon.
 - Status tab with a route map and latency, packet loss, jitter and DNS for both links.
-- Resources tab: CPU, memory, GPU, network and disk, with a process list and End task.
+- Resources tab: CPU, memory, GPU, network and disk, with a process list and End task, and a Details page listing every app with its CPU, memory, disk, GPU and network use.
 - Startup apps and Services: see what starts when you sign in and turn it on or off, and start, stop or restart background services. Protected system services stay locked; Store apps are managed by Windows.
 - Live download/upload speed next to the tray icons, start at login, notifications and a daily log.
 
@@ -42,11 +44,11 @@
 
 ## Privacy
 
-No telemetry and no account. It only contacts your ping targets (8.8.8.8 and 1.1.1.1 by default), your adapters' DNS servers, and the GitHub API for update checks, which you can turn off in Settings.
+No telemetry and no account. It only contacts your ping targets (8.8.8.8 and 1.1.1.1 by default), your adapters' DNS servers, and the GitHub API for update checks, which you can turn off in Settings. Only if you use Split, it also asks 1.1.1.1 for each line's public address, and its speed test downloads from Cloudflare's speed test servers. Split's proxy runs on your own computer and never routes traffic through an outside server.
 
 Ubuntu and macOS builds are available from the project page; this package is for Windows 10 and 11 only.
 ]]></description>
-    <releaseNotes>https://github.com/bilal-nasr/lan-wifi-manager/releases/tag/v2.3.0</releaseNotes>
+    <releaseNotes>https://github.com/bilal-nasr/lan-wifi-manager/releases/tag/v2.5.0</releaseNotes>
   </metadata>
   <files>
     <file src="tools\**" target="tools" />

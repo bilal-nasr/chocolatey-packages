@@ -8,8 +8,8 @@ $exePath  = Join-Path $toolsDir 'LanWifiManager.exe'
 $packageArgs = @{
   packageName    = $env:ChocolateyPackageName
   fileFullPath   = $exePath
-  url64bit       = 'https://github.com/bilal-nasr/lan-wifi-manager/releases/download/v2.3.0/LanWifiManager.exe'
-  checksum64     = 'fa9191ae6f56d038ee2368049e338accef0374c1df7a6d3da1d84f94e40a7ded'
+  url64bit       = 'https://github.com/bilal-nasr/lan-wifi-manager/releases/download/v2.5.0/LanWifiManager.exe'
+  checksum64     = '26f33588bc537967490605a9f128d17eb2ed66a4d5c36684bf76a361d70603c8'
   checksumType64 = 'sha256'
 }
 Get-ChocolateyWebFile @packageArgs
